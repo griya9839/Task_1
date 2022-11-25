@@ -1,0 +1,75 @@
+import java.util.Scanner;
+ 
+public class Guess{
+ 
+    
+    public static void
+    guessingNumberGame()
+    {
+        
+        Scanner obj = new Scanner(System.in);
+ 
+        
+        int num = 1 + (int)(100
+                               * Math.random());
+ 
+        
+        int trail = 5;
+ 
+        int i, corr_num;
+ 
+        System.out.println(
+            "A number is chosen"
+            + " between 1 to 100.");
+        System.out.println(  "You have to guess the number"
+            + " within 5 trials.");
+ 
+        // Iterate over K Trials
+        for (i = 0; i < trail; i++) {
+ 
+            System.out.println(
+                "Guess the number:");
+ 
+     
+            corr_num = obj.nextInt();
+ 
+            // If the number is guessed
+            if (num == corr_num) {
+                System.out.println(
+                    "Congratulations!"
+                    + " You guessed the number correct");
+                break;
+            }
+            else if (num >corr_num
+                     && i != trail - 1) {
+            	System.out.println(
+                       "OOPS! TRY AGAIN");
+                System.out.println(
+                    "The number is "
+                    + "greater than " + corr_num);
+            }
+            else if (num < corr_num
+                     && i != trail - 1) {
+                System.out.println(
+                    "The number is"
+                    + " less than " + corr_num);
+            }
+        }
+ 
+        if (i == trail) {
+            System.out.println(
+                "You have exhausted"
+                + trail +" trials.");
+ 
+            System.out.println(
+                "The number was " + num);
+        }
+    }
+
+    public static void
+    main(String arg[])
+    {
+ 
+        guessingNumberGame();
+    }
+}
